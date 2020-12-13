@@ -29,3 +29,18 @@ Route::group(
         Route::post('refresh', 'AuthController@refresh');
     }
 );
+
+Route::group(
+    [
+        'middleware' => 'api',
+        'namespace' => 'App\Http\Controllers',
+        'prefix' => 'v1'
+    ],
+    function ($router) {
+        Route::apiResources([
+            'estados' => EstadoController::class,
+            'cidades' => CidadeController::class,
+            'enderecos' => EnderecoController::class
+        ]);
+    }
+);
