@@ -16,10 +16,29 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:add-entidades" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd2009c-6274-4437-983f-82fa10dad882" name="Default Changelist" comment="" />
+    <list default="true" id="8bd2009c-6274-4437-983f-82fa10dad882" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/packages.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/packages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/2c/91/2c9192dc7fdac8fc0a832bb9c1c2c4f66312c536" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/52/ac/52acebe9de48b9434598fa65d2ec8d0e111e90b0" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/52/ac/52acebe9de48b9434598fa65d2ec8d0e111e90b0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/70/d5/70d5789fb8fa04f157e2f175d8e9158bc3d2b5c6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/a4/4c/a44c1cbc7c8dc54286975fd7027ed705e85a7958" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/c0/71/c071422490d526a8aada046adf3a9c9fa0593468" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/c0/71/c071422490d526a8aada046adf3a9c9fa0593468" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/ec/c4/ecc49f49f4da6b940dcde13f0571e79c299871e6" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/ec/c4/ecc49f49f4da6b940dcde13f0571e79c299871e6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,6 +172,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -173,6 +198,7 @@
       <updated>1607806857253</updated>
       <workItem from="1607806858649" duration="1520000" />
       <workItem from="1607809339331" duration="21000" />
+      <workItem from="1607809563127" duration="9458000" />
     </task>
     <servers />
   </component>
@@ -184,16 +210,33 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="add-entidades" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1607807214422">
+    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1607810651477">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607807214422" />
+    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607810651477" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607809608058">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607809608058" />
   </component>
 </project>
