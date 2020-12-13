@@ -1,62 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Laravel8API
+Aplicação desenvolvida na linguagem PHP v7.4 com Laravel Framework v8.
+É um backend responsável por autenticar usuários na API
+Uma vez autenticado, o usuários poderá fazer requisições de dados da API.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Requisitos
+1. PHP 7.3
+2. MariaDB
+3. Composer
 
-## About Laravel
+Eu uso o xampp ;)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Procedimento de instação
+```bash
+composer install -o --no-dev
+```
+Configurar o .env
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```php
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel8api
+DB_USERNAME=laravel8api
+DB_PASSWORD=laravel8api
+```
+É preciso criar o banco de dados no mysql e usuário com privilégios
+```bash
+CREATE USER 'laravel8api'@'%' IDENTIFIED VIA mysql_native_password USING '***';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, FILE, INDEX, ALTER, 
+CREATE TEMPORARY TABLES, CREATE VIEW, EVENT, TRIGGER, SHOW VIEW, 
+CREATE ROUTINE, ALTER ROUTINE, EXECUTE ON *.* TO 'laravel8api'@'%' 
+REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 
+MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+CREATE DATABASE IF NOT EXISTS `laravel8api`;
+GRANT ALL PRIVILEGES ON `laravel8api`.* TO 'laravel8api'@'%';
+GRANT ALL PRIVILEGES ON `laravel8api\_%`.* TO 'laravel8api'@'%';
+```
+Crie o banco de dados
+```php
+php artisan migrate
+```
+Popule o banco de dados (opcional)
+```php
+php artisan db:seed
+```
+Rode o servidor localmente na porta 9000 para testes
+```php
+php artisan serve --host 0.0.0.0 --port 9000
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Rotas
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+| Domain | Method    | URI                         | Name              | Action                                          | Middleware |
+|--------|-----------|-----------------------------|-------------------|-------------------------------------------------|------------|
+|        | GET|HEAD  | /                           |                   | Closure                                         | web        |
+|        | POST      | api/auth/login              |                   | App\Http\Controllers\AuthController@login       | api        |
+|        | POST      | api/auth/logout             |                   | App\Http\Controllers\AuthController@logout      | api        |
+|        |           |                             |                   |                                                 | auth:api   |
+|        | GET|HEAD  | api/auth/me                 |                   | App\Http\Controllers\AuthController@me          | api        |
+|        |           |                             |                   |                                                 | auth:api   |
+|        | POST      | api/auth/refresh            |                   | App\Http\Controllers\AuthController@refresh     | api        |
+|        |           |                             |                   |                                                 | auth:api   |
+|        | POST      | api/auth/register           |                   | App\Http\Controllers\AuthController@register    | api        |
+|        | POST      | api/v1/cidades              | cidades.store     | App\Http\Controllers\CidadeController@store     | api        |
+|        | GET|HEAD  | api/v1/cidades              | cidades.index     | App\Http\Controllers\CidadeController@index     | api        |
+|        | PUT|PATCH | api/v1/cidades/{cidade}     | cidades.update    | App\Http\Controllers\CidadeController@update    | api        |
+|        | GET|HEAD  | api/v1/cidades/{cidade}     | cidades.show      | App\Http\Controllers\CidadeController@show      | api        |
+|        | DELETE    | api/v1/cidades/{cidade}     | cidades.destroy   | App\Http\Controllers\CidadeController@destroy   | api        |
+|        | GET|HEAD  | api/v1/enderecos            | enderecos.index   | App\Http\Controllers\EnderecoController@index   | api        |
+|        | POST      | api/v1/enderecos            | enderecos.store   | App\Http\Controllers\EnderecoController@store   | api        |
+|        | GET|HEAD  | api/v1/enderecos/{endereco} | enderecos.show    | App\Http\Controllers\EnderecoController@show    | api        |
+|        | PUT|PATCH | api/v1/enderecos/{endereco} | enderecos.update  | App\Http\Controllers\EnderecoController@update  | api        |
+|        | DELETE    | api/v1/enderecos/{endereco} | enderecos.destroy | App\Http\Controllers\EnderecoController@destroy | api        |
+|        | POST      | api/v1/estados              | estados.store     | App\Http\Controllers\EstadoController@store     | api        |
+|        | GET|HEAD  | api/v1/estados              | estados.index     | App\Http\Controllers\EstadoController@index     | api        |
+|        | GET|HEAD  | api/v1/estados/{estado}     | estados.show      | App\Http\Controllers\EstadoController@show      | api        |
+|        | PUT|PATCH | api/v1/estados/{estado}     | estados.update    | App\Http\Controllers\EstadoController@update    | api        |
+|        | DELETE    | api/v1/estados/{estado}     | estados.destroy   | App\Http\Controllers\EstadoController@destroy   | api        |
+|--------|-----------|-----------------------------|-------------------|-------------------------------------------------|------------|
